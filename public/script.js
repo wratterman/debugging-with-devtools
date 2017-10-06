@@ -30,7 +30,7 @@ const renderExpenses = (expenses) => {
 
 
 // Highlight expenses that match the selected category
-$('#category-highlight').on('change', (e) => {
+$('#highlight-category').on('change', (e) => {
 
   // Remove any pre-existing highlights
   $('#expenses-data').find('tr').removeClass('highlighted');
