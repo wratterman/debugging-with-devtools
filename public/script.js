@@ -37,7 +37,7 @@ $('#highlight-category').on('change', (e) => {
 
   // Get the currently selected category and find matching table rows
   const selectedCategory = $(e.currentTarget).val();
-  const matches = $('#expenses-data').find(`tr.${selectedCategory}`);
+  const matches = $('#expenses-data').find(`tr.${selectedCategory.toLowerCase()}`);
 
   // Add a highlight class to all matches
   matches.each((index, match) => {
