@@ -12,9 +12,9 @@ app.use(express.static('public'));
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Expense Tracker'
 app.locals.expenses = [
-  { category: 'bills', description: 'Rent', cost: '$1,000' },
-  { category: 'fun', description: 'Beer', cost: '$10,000' },
-  { category: 'transportation', description: 'Metrocard', cost: '$100' },
+  { id: 1, category: 'bills', description: 'Rent', cost: '$1,000' },
+  { id: 2, category: 'fun', description: 'Beer', cost: '$10,000' },
+  { id: 3, category: 'transportation', description: 'Metrocard', cost: '$100' },
 ];
 
 
@@ -51,12 +51,18 @@ app.post('/expenses', (request, response) => {
   response.status(201).send({expense: expense });
 });
 
-app.put('/expenses/:id', (request, response) => {
-  const { expense } = request.body;
+app.patch('/expenses/:id', (request, response) => {
+  const expense = request.body;
   const { id } = request.params;
   const index = app.locals.expenses.findIndex((m) => m.id == id);
 
   if (index === -1) { return response.sendStatus(404); }
+
+  if (!expense.category && !expense.cost && !expense.description) {
+    return response
+      .status(422)
+      .send({ error: `You are trying to update an invalid property name or a property that does not exist.` });
+  }
 
   const oldexpense = app.locals.expenses[index];
   app.locals.expenses[index] = Object.assign(oldexpense, expense);

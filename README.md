@@ -1,4 +1,4 @@
-# Expense Tracker
+## Debugging Practice Scenario 3 - Inline Editing
 
 A simple expense tracking application with different bugs to solve using devtools. This application coincides with the [DevTools Debugging Lesson Plan (link to come)]().
 
@@ -53,5 +53,4 @@ When a user clicks on a pre-existing expense, we want to be able to update that 
 
 ------------------------------------------
 
-*Note: Each practice scenario branch does not 'build' off the previous. The bugs and features in each branch are isolated and independent of one another.* e.g. if you complete the first scenario and implement category highlighting, then switch to the branch for the second scenario, category highlighting will no longer be present. It's a feature, not a bug ;) 
-
+*Note: Each practice scenario branch does not 'build' off the previous. The bugs and features in each branch are isolated and independent of one another.* e.g. if you complete the first scenario and implement category highlighting, then switch to the branch for the second scenario, category highlighting will no longer be present. It's a feature, not a bug ;)
